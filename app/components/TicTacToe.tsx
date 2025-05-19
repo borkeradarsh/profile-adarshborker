@@ -5,7 +5,7 @@ function TicTacToe() {
     const emptyBoard: (string | null)[] = Array(9).fill(null);
     const [board, setBoard] = React.useState<(string | null)[]>(emptyBoard);
     const [isUserTurn, setIsUserTurn] = React.useState(true);
-    const [status, setStatus] = React.useState<React.ReactNode>('YOUR TURN!');
+    const [status, setStatus] = React.useState<string>('YOUR TURN!');
 
     // Check for winner or draw
     React.useEffect(() => {
@@ -13,8 +13,8 @@ function TicTacToe() {
         if (winner) {
             setStatus(
                 winner === 'X'
-                    ? <span className="text-lg md:text-2xl font-extrabold text-green-400 text-center">YOU WINNNN</span>
-                    : <span className="text-lg md:text-2xl font-extrabold text-red-400 text-center">AUTOPLAYER WINS HAHAHHAHAHA</span>
+                    ? 'YOU WINNNN'
+                    : 'I WINNNN HAHHHAHAHA'
             );
         } else if (board.every(Boolean)) {
             setStatus('DRAW:(');
@@ -95,7 +95,15 @@ function TicTacToe() {
                     </button>
                 ))}
             </div>
-            <div className="mb-2 text-sm">{status}</div>
+            <div className="mb-2 text-sm">
+                {status === 'YOU WINNNN' ? (
+                    <span className="text-lg md:text-2xl font-extrabold text-green-400 text-center">YOU WINNNN</span>
+                ) : status === 'AUTOPLAYER WINS HAHAHHAHAHA' ? (
+                    <span className="text-lg md:text-2xl font-extrabold text-red-400 text-center">AUTOPLAYER WINS HAHAHHAHAHA</span>
+                ) : (
+                    status
+                )}
+            </div>
             <button
                 onClick={handleReset}
                 className="px-2 py-1 text-xs md:px-3 md:py-1.5 md:text-sm lg:px-4 lg:py-2 lg:text-base bg-gradient-to-br from-blue-800 to-purple-600 rounded text-white font-semibold hover:bg-blue-600 transition"
