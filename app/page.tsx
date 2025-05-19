@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function page() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white font-sans">
+    <main className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700 text-white font-sans overflow-x-hidden overflow-y-hidden scrollbar-hide">
       <div className='min-h-screen flex flex-col'>
      <div className="flex justify-center items-center pt-4">
   <motion.div
@@ -15,7 +15,7 @@ export default function page() {
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 1, ease: "easeInOut" }}
   >
-    <img src='./header.png' alt="head" className="w-full h-auto mx-auto" />
+    <img src='./header.png' alt="head" className="w-full max-w-full h-auto mx-auto" />
   </motion.div>
 </div>
 <motion.div
@@ -38,7 +38,7 @@ export default function page() {
       <img
         src="./about.png"
         alt="About"
-        className="w-full h-auto"
+        className="w-full max-w-full h-auto"
       />
     </motion.div>
 
@@ -69,7 +69,7 @@ export default function page() {
   >
     <motion.img
       src="./image1.png"
-      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto"
+      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto max-w-full"
       initial={{ opacity: 0, x: -60 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -89,7 +89,7 @@ export default function page() {
     </motion.div>
     <motion.img
       src="./image3.png"
-      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto"
+      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto max-w-full"
       initial={{ opacity: 0, x: 60 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -124,7 +124,7 @@ export default function page() {
           href="https://wa.me/917022715411"
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-4 rounded-full shadow-lg transition duration-200 flex items-center gap-2 text-sm sm:text-base"
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-4 rounded-full shadow-lg transition duration-200 flex items-center gap-2 text-sm sm:text-base scroll-smooth"
         >
           <svg
             className="w-4 h-4 sm:w-5 sm:h-5"
@@ -137,7 +137,8 @@ export default function page() {
         </a>
       </div>
     </motion.div>
-
+    {/* This empty div fixes unwanted scrollbars caused by flex children with large content */}
+    <div className="hidden lg:block flex-shrink-0 w-0 h-full" />
     {/* SONG COMPONENT */}
     <motion.div
       className="w-3/4 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl flex justify-center items-center transition-transform duration-300 ease-in-out"
