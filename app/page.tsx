@@ -69,7 +69,7 @@ export default function page() {
   >
     <motion.img
       src="./image1.png"
-      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto max-w-full"
+      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto max-w-full transition-transform duration-300 hover:scale-110 hover:shadow-2xl hover:brightness-110 cursor-pointer"
       initial={{ opacity: 0, x: -60 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -89,7 +89,7 @@ export default function page() {
     </motion.div>
     <motion.img
       src="./image3.png"
-      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto max-w-full"
+      className="w-3/4 sm:w-2/3 md:w-1/2 lg:w-1/3 h-auto max-w-full transition-transform duration-300 hover:scale-110 hover:shadow-2xl hover:brightness-110 cursor-pointer"
       initial={{ opacity: 0, x: 60 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.2 }}
